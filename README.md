@@ -4,7 +4,9 @@
 - 1.灰度化可以将3通道图像转化为单通道图像，以便进行二值化门限分割；去噪可以有效剔除图像中的异常独立噪点；二值化是为轮廓查找函数提供单通道图像
 - 2.实现识别:注意到需要识别的R标和锤子与宝剑最显著差异即轮廓面积，通过提取轮廓判定面积来识别出R标和锤子，为了实现在锤头中心点画上圆点，通过内外轮廓父子关系提取出锤头的长方形轮廓，最后通过计算中心点的坐标画上圆点。避免遍历次数过多设置判定条件，找到目标就退出循环。 
 > (轮廓检测参考blog) https://blog.csdn.net/iracer/article/details/90695914?ops_request_misc=&request_id=&biz_id=102&utm_term=opencv%E8%BD%AE%E5%BB%93%E8%AF%86%E5%88%AB&utm_medium=distribute.pc_search_result.none-task-blog-2~blog~sobaiduweb~default-2-90695914.nonecase&spm=1018.2226.3001.4450
-> ！[实现识别](https://github.com/user-attachments/assets/f5aa4c07-c7ed-43bd-909e-88de2ed97c86)
+
+>  ![circle](https://github.com/user-attachments/assets/d62daeec-bd6f-45e2-95ed-cab2b644f40d)
+
 ### **拟合**
 **配置环境**
 - 安装 eigen3:1.sudo apt-get update 2.sudo apt-get install libeigen3-dev
