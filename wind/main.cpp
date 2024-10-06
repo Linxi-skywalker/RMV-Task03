@@ -115,17 +115,17 @@ Point2d normvectorPR = vectorPR / norm(vectorPR);
         problem.AddResidualBlock(new ceres::AutoDiffCostFunction<AngleCostFunctor, 1, 1, 1, 1, 1>(new AngleCostFunctor(x_data, y_data)), NULL, &A0, &A, &w, &phi);
 
             ceres::Solver::Options options;
-            options.max_num_iterations = 25;
+            options.max_num_iterations = 20;
             options.linear_solver_type = ceres::DENSE_QR;
 
             problem.SetParameterLowerBound(&A0, 0, 0.5);
             problem.SetParameterUpperBound(&A0, 0, 1.5);
             problem.SetParameterLowerBound(&A, 0, 0.5);
-            problem.SetParameterUpperBound(&A, 0, 1.5);
+            problem.SetParameterUpperBound(&A, 0, 1.0);
             problem.SetParameterLowerBound(&w, 0, 1.0);
             problem.SetParameterUpperBound(&w, 0, 2.0);
-            problem.SetParameterLowerBound(&phi, 0, 0.0);
-            problem.SetParameterUpperBound(&phi, 0, 1.5);
+            problem.SetParameterLowerBound(&phi, 0, 0.24);
+            problem.SetParameterUpperBound(&phi, 0, 1.25);
 
             ceres::Solver::Summary summary;
             Solve(options, &problem, &summary);
